@@ -1,0 +1,6 @@
+[submodule "rice"]
+	path = rice
+	url = git@github.com:stanipintjuk/immutable-rice.git
+[submodule "dotfiles"]
+	path = dotfiles
+	url = git@github.com:stanipintjuk/dotfiles.git
