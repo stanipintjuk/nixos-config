@@ -3,7 +3,15 @@ let
    secrets = import ../secrets.nix;
 in
 {
-  imports = [ ./asusac1300.nix ./nat.nix ];
+  imports = [ 
+    ./asusac1300.nix 
+
+    (import ./router/mkRouter.nix {
+      internalInterface = "enp4s0";
+      externalInterface = "wlp0s20f0u8";
+      ipRange = "192.168.7.0/24";
+    })
+  ];
 
   # Networking
   networking.hostName = secrets.hostName;
