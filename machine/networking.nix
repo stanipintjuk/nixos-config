@@ -9,7 +9,6 @@ in
     (import ../router/mkRouter.nix {
       internalInterface = "enp4s0";
       externalInterface = "wlp0s20f0u8";
-      ipRange = "192.168.7.0/24";
     })
   ];
 
