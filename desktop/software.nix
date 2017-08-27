@@ -33,5 +33,8 @@
 
 		# games
 		steam
+    minecraft
+    xonotic
+    superTuxKart
 	];
 }
