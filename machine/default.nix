@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./boot.nix
+    ./boot.nix 
     ./bluetooth.nix
     ./networking.nix
   ];
