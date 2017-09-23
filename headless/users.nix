@@ -18,7 +18,7 @@ in
     description = "Stani Pintjuk";
     hashedPassword = secrets.passhash;
 
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "wwwrun"];
     uid = 1001;
   };
 }

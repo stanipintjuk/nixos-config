@@ -11,6 +11,7 @@
       ./machine/default.nix
       ./headless/default.nix
       ./desktop/default.nix
+      ./server/default.nix
       ./rice/rice.nix
     ];
 

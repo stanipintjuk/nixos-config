@@ -22,6 +22,7 @@
     pciutils
     glxinfo
     tree
+    ranger
     gnumake
     unrar
     zip
@@ -33,6 +34,7 @@
     networkmanager
     nmap
     bc
+    efibootmgr
     
     # languages and libs
     rustStable.rustc

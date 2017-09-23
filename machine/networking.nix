@@ -8,7 +8,7 @@ in
 
     (import ../router/mkRouter.nix {
       internalInterface = "enp4s0";
-      externalInterface = "wlp0s20f0u8";
+      externalInterface = "wlp0s20f0u5";
     })
   ];
 
