@@ -2,32 +2,32 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, ... }:
+
 {
   imports =
-    [ 
-      <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      (import ./updateIntelMicrocode.nix)
+    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.loader.grub.device = "/dev/nvme0n1";
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9dadea6c-234e-4cd4-bde3-4d2a1018b076";
+    { device = "/dev/disk/by-uuid/5207cdc6-8dbb-4a7d-8320-50d93e7f3f96";
       fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7018-1365";
-      fsType = "vfat";
     };
 
   swapDevices = [ ];
 
+ fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/6709-4F24";
+      fsType = "vfat";
+    };
+
+
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = "powersave";
 
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.enableAllFirmware = true;
+
 }

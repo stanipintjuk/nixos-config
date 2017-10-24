@@ -1,18 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # cli stuff that I NEED
     wget
     git
-
-    (
-      with import <nixpkgs> {};
-      
-      vim_configurable.customize {
-        name = "vim";
-        vimrcConfig.customRC = builtins.readFile ../dotfiles/vimrc;
-      }
-    )
 
     htop
     gnupg
@@ -37,8 +27,7 @@
     efibootmgr
     
     # languages and libs
-    rustStable.rustc
-    rustStable.cargo
+    rustup
     python35Full
     python35Packages.pip
     python35Packages.virtualenv
@@ -46,10 +35,5 @@
     libpng
   ];
 
-
-  # Default programs
-  programs.zsh.enable = true;
-  users.defaultUserShell = "/var/run/current-system/sw/bin/zsh";
-  programs.vim.defaultEditor = true;
   programs.java.enable = true;
 }

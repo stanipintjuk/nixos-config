@@ -1,5 +1,7 @@
+# Downloads and installs the latest intel microcode
+
 { lib, ... }:
-with import ../helpers.nix;
+with import ./helpers.nix;
   # I get the latest (2017-07-07) microcode from the nixpkgs master branch
 let 
   masterPkgs = pkgsFromGit { url = "https://github.com/NixOS/nixpkgs"; branch = "master"; };

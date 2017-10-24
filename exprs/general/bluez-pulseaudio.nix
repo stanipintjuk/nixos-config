@@ -1,3 +1,4 @@
+#Enables bluetooth headset using bluez5 and pulseaudio
 { pkgs, ... }:
 {
   hardware.bluetooth = {

@@ -15,7 +15,8 @@
 		rxvt_unicode
 
 		# Emulation
-		(wine.override { wineBuild = "wineWow"; })
+		#(wine.override { wineBuild = "wineWow"; }) #tired of recompiling constantly
+    wine
 		winetricks
 		qemu
 
@@ -30,6 +31,7 @@
 		gimp
 		xfce.thunar
 		vlc
+    pavucontrol
 
 		# games
 		steam

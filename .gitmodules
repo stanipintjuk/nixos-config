@@ -4,3 +4,6 @@
 [submodule "dotfiles"]
 	path = dotfiles
 	url = git@github.com:stanipintjuk/dotfiles.git
+[submodule "router"]
+	path = router
+	url = git@github.com:stanipintjuk/nixos-router.git

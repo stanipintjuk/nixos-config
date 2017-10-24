@@ -1,9 +1,9 @@
+# This is the place for users
 { ... }:
 let
-  secrets = import ../secrets.nix;
+  secrets = import ./secrets.nix;
 in
 {
-  # User stuff
   users.mutableUsers = false;
 
   users.extraUsers.guest = {
