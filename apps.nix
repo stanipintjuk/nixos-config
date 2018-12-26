@@ -32,11 +32,24 @@
 		xfce.thunar
 		vlc
     pavucontrol
+    keybase-gui
+    mupdf
+    nextcloud-client
 
 		# games
 		steam
     minecraft
     xonotic
     superTuxKart
+
+    libreoffice
+    gnuplot
+    ssvnc
+
 	];
+
+  #services.dbus = {
+  #  socketActivated = true;
+  #  packages = [ pkgs.gnome2.GConf ];
+  #};
 }

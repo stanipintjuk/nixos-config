@@ -13,6 +13,7 @@
     glxinfo
     tree
     ranger
+    highlight
     gnumake
     unrar
     zip
@@ -25,6 +26,12 @@
     nmap
     bc
     efibootmgr
+    openssl
+    keybase
+    dnsutils
+    kbfs
+    nix-repl
+    qrencode
     
     # languages and libs
     rustup
@@ -33,6 +40,12 @@
     python35Packages.virtualenv
     gcc
     libpng
+
+    #themes
+    arc-theme
+    arc-icon-theme
+    #numix-solarized-gtk-theme
+    gtk3
   ];
 
   programs.java.enable = true;
