@@ -30,8 +30,8 @@
     keybase
     dnsutils
     kbfs
-    nix-repl
     qrencode
+    dex
     
     # languages and libs
     rustup

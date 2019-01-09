@@ -4,7 +4,7 @@
 with import ./helpers.nix;
   # I get the latest (2017-07-07) microcode from the nixpkgs master branch
 let 
-  masterPkgs = pkgsFromGit { url = "https://github.com/NixOS/nixpkgs"; branch = "master"; };
+  masterPkgs = pkgsFromGit { url = "https://github.com/NixOS/nixpkgs"; rev = "bccac381b27592bdc22d151c744814716eb4f7ec"; sha256 = "1g8v4fbdm393fn11qv7mrqkysqisxxvsyx9wfr99kbffchsf5dbg"; };
   latestMicrocodeIntel = masterPkgs.microcodeIntel;
 in
 builtins.trace "Microcode in: ${latestMicrocodeIntel.outPath}"

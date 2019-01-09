@@ -1,28 +1,22 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 
-	environment.systemPackages = with pkgs; [
-		feh
-		imagemagick
-		scrot
-    xorg.xev
+  environment.systemPackages = with pkgs; [ feh imagemagick scrot xorg.xev
 
-		i3lock
-		i3status
-		conky
+    i3lock i3status conky
 
-		xfontsel
-		rxvt_unicode
+    xfontsel rxvt_unicode
 
-		# Emulation
-		#(wine.override { wineBuild = "wineWow"; }) #tired of recompiling constantly
-    wine
-		winetricks
-		qemu
+    # Emulation
+    #(wine.override { wineBuild = "wineWow"; }) #tired of recompiling
+    #constantly
+    wine 
+    winetricks 
+    (qemu.override { smartcardSupport = true; })
+    gnome3.gnome-boxes
+    atom
 
-		# desktop apps
-    thunderbird 
-		firefox
+    # desktop apps
+    thunderbird firefox
 		tdesktop
 		inkscape
 		transmission_gtk
@@ -46,6 +40,11 @@
     gnuplot
     ssvnc
 
+    #kde  
+    gwenview
+    okular
+
+    quota
 	];
 
   #services.dbus = {

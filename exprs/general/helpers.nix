@@ -6,13 +6,13 @@ in
 {
   # Clones a nixpkgs git repo and returns all the packages within it
   pkgsFromGit = 
-    { url, branch }:
+    { url, rev, sha256}:
     let 
-      repoDrv = fetchgit { url = url; branchName = branch; };
+      repoDrv = fetchgit { inherit url rev sha256; };
       repoLocation = repoDrv.outPath;
     in
     ( builtins.trace 
-    "WARNING: Use of foreign packages from ${url} on branch ${branch}"
+    "WARNING: Use of foreign packages from ${url} on revision ${rev}"
     ( pkgsFromRepo { path = repoLocation; } )
     );
 }

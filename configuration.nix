@@ -17,6 +17,7 @@ in
 
   networking.firewall.enable = false;
 
+  nixpkgs.config.allowUnfree = true;
   imports =
     [ 
       ./hardware-configuration.nix
@@ -24,21 +25,23 @@ in
       ./software.nix
       ./apps.nix
 
-      #./rice/rice.nix
       ./exprs/specific/enable-redshift.nix
-      #./exprs/specific/route-to-pi.nix
       ./exprs/specific/enable-my-wifi.nix
       httpserver
       ./exprs/specific/my-preferred-cli.nix
       ./exprs/specific/minidlna.nix
 
-      ./exprs/general/latest-intel-microcode.nix
-      #./exprs/general/bluez-pulseaudio.nix
-      ./exprs/general/use-fglrx.nix
       ./exprs/general/enable-pulseaudio.nix
       ./postgressql.nix
       ./exprs/general/systemdboot.nix
+      
+      ./printing.nix
+      ./freenet.nix
     ];
+    
+  services.xserver.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
 
   services.keybase.enable = true;
   services.kbfs = 
@@ -55,7 +58,6 @@ in
   time.timeZone = "Europe/Stockholm";
 
   # Networking
-  networking.hostName = secrets.hostName;
   services.openssh.enable = true;
   networking.nameservers = [ "192.168.1.1" "8.8.8.8" "8.8.4.4" ];
   networking.enableIPv6 = false;
