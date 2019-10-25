@@ -5,66 +5,44 @@
 { ... }:
 let
   secrets = import ./secrets.nix;
-
-  # Create an nix channel http server for the pinebook nixos project
-  httpserver = import ./exprs/general/servehttp.nix 
-    [
-      { dir = "/var/www/nixos-17.03-pinebook"; urlPath = "/nixos-17.03-pinebook"; } 
-      { dir = "/var/www/nixos-17.03-pinebook-cache"; urlPath = "/nixos-17.03-pinebook-cache"; } 
-    ];
 in
 {
 
   networking.firewall.enable = false;
+  security.rngd.enable = false;
 
   nixpkgs.config.allowUnfree = true;
   imports =
     [ 
-      ./hardware-configuration.nix
+      #./hardware-configuration.nix
       ./users.nix
       ./software.nix
       ./apps.nix
 
       ./exprs/specific/enable-redshift.nix
-      ./exprs/specific/enable-my-wifi.nix
-      httpserver
       ./exprs/specific/my-preferred-cli.nix
-      ./exprs/specific/minidlna.nix
 
+      ./exprs/general/blutooth.nix
       ./exprs/general/enable-pulseaudio.nix
-      ./postgressql.nix
-      ./exprs/general/systemdboot.nix
+      #./exprs/general/systemdboot.nix
       
       ./printing.nix
-      ./freenet.nix
+      #./freenet.nix
+      ./kde.nix
+      ./multitouch-gestures.nix
     ];
     
   services.xserver.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-
-  services.keybase.enable = true;
-  services.kbfs = 
-  {
-    enable = true;
-    mountPoint = "/keybase";
-  };
-
-
-  networking.extraHosts = ''
-  '';
 
   nix.buildCores = 8;
   time.timeZone = "Europe/Stockholm";
 
   # Networking
   services.openssh.enable = true;
-  networking.nameservers = [ "192.168.1.1" "8.8.8.8" "8.8.4.4" ];
+  networking.nameservers = [ "192.168.1.1" "8.8.8.8" "8.8.4.4" "192.168.0.1" ];
   networking.enableIPv6 = false;
+  networking.networkmanager.enable = true;
 
-  # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "17.09";
-  
   security.pki.certificates = [
 ''
 -----BEGIN CERTIFICATE-----

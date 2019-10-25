@@ -11,7 +11,7 @@
     #constantly
     wine 
     winetricks 
-    (qemu.override { smartcardSupport = true; })
+    qemu
     gnome3.gnome-boxes
     atom
 
@@ -29,6 +29,8 @@
     keybase-gui
     mupdf
     nextcloud-client
+    chromium
+    skype
 
 		# games
 		steam
@@ -38,17 +40,5 @@
 
     libreoffice
     gnuplot
-    ssvnc
-
-    #kde  
-    gwenview
-    okular
-
-    quota
 	];
-
-  #services.dbus = {
-  #  socketActivated = true;
-  #  packages = [ pkgs.gnome2.GConf ];
-  #};
 }

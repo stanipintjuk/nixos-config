@@ -12,13 +12,19 @@ in
     uid = 1000;
   };
 
+  # #run fprintd-enroll
+  #services.fprintd.enable = true;
+  #security.pam.services = {
+  #  login.fprintAuth = true;
+  #  xscreensaver.fprintAuth = true;
+  #};
   users.extraUsers.stani = {
     isNormalUser = true;
     home = "/home/stani";
     description = "Stani Pintjuk";
     hashedPassword = secrets.passhash;
 
-    extraGroups = [ "wheel" "networkmanager" "wwwrun"];
+    extraGroups = [ "wheel" "networkmanager" "wwwrun" "scanner" "lp"];
     uid = 1001;
   };
 

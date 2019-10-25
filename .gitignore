@@ -2,3 +2,4 @@ result
 secrets.nix
 .*.swp
 *.qcow2
+.*.swo
